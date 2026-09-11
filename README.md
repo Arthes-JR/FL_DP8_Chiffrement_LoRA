@@ -171,9 +171,6 @@ robuste dégrade generalement l'utilité en régime très non-iid et avec peu
 de clients). C'est un résultat à part entière, à discuter au chapitre 11.4
 du mémoire plutôt qu'un défaut du code.
 
-**Remplacez ces chiffres par les vôtres** : relancez avec vos propres
-paramètres (nombre de clients, alpha, sigma, epsilon...) et copiez le
-contenu de `results/metrics_history.csv` dans le chapitre 11 du mémoire.
 
 ## Passage à l'échelle : brancher un vrai LLM
 
