@@ -1,4 +1,4 @@
-# Prototype -- Analyse fédérée respectueuse de la vie privée pour données sensibles (TFC, Thème 18)
+# Prototype -- Analyse fédérée respectueuse de la vie privée pour données sensibles 
 
 Implémentation de référence du protocole décrit dans le mémoire : apprentissage
 fédéré (FedAvg) + confidentialité différentielle (DP-SGD) + agrégation
