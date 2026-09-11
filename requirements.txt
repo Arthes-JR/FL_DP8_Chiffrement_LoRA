@@ -1,0 +1,11 @@
+# Dependances du prototype (chapitre 10.1.4 du memoire).
+# Toutes fonctionnent hors ligne, sans GPU : aucune dependance a torch,
+# transformers ou peft n'est requise pour CE prototype pedagogique
+# (voir README.md, section "Passage a l'echelle" pour l'integration
+# d'un vrai LLM HuggingFace en remplacement de model_build.py).
+
+numpy>=1.24
+scipy>=1.10
+PyYAML>=6.0
+cryptography>=41.0
+matplotlib>=3.7

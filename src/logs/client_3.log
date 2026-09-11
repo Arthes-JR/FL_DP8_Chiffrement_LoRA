@@ -1,0 +1,10 @@
+[client 3] parts de Shamir detenues pour les clients : [1, 2, 4, 5]
+[client 3] jeu de donnees local charge : 58 exemples.
+[client 3] connecte au serveur (TLS), HELLO envoye.
+[client 3] configuration recue. poids FedAvg = 0.0181
+[client 3] round 1 : mise a jour locale envoyee (entrainement+masquage en 0.01s).
+[client 3] round 2 : mise a jour locale envoyee (entrainement+masquage en 0.01s).
+[client 3] round 3 : mise a jour locale envoyee (entrainement+masquage en 0.01s).
+[client 3] round 4 : mise a jour locale envoyee (entrainement+masquage en 0.01s).
+[client 3] round 5 : mise a jour locale envoyee (entrainement+masquage en 0.01s).
+[client 3] entrainement federe termine (message DONE recu).

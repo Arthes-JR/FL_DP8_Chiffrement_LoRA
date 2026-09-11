@@ -1,0 +1,74 @@
+{
+  "curves_final_f1": {
+    "fl_no_dp": "0.4314",
+    "fl_dp_no_secagg": "0.256",
+    "fl_dp_secagg": "0.303",
+    "fl_dp_median_stress": "0.0381",
+    "centralized_baseline": "0.4881"
+  },
+  "privacy_sweep": [
+    {
+      "sigma": 0.1,
+      "epsilon_estime": 1517.427,
+      "f1_final": "0.2748",
+      "accuracy_final": "0.8812"
+    },
+    {
+      "sigma": 0.3,
+      "epsilon_estime": 505.809,
+      "f1_final": "0.25",
+      "accuracy_final": "0.88"
+    },
+    {
+      "sigma": 0.6,
+      "epsilon_estime": 252.905,
+      "f1_final": "0.2677",
+      "accuracy_final": "0.8838"
+    },
+    {
+      "sigma": 1.0,
+      "epsilon_estime": 151.743,
+      "f1_final": "0.2167",
+      "accuracy_final": "0.8825"
+    },
+    {
+      "sigma": 1.5,
+      "epsilon_estime": 101.162,
+      "f1_final": "0.2",
+      "accuracy_final": "0.88"
+    },
+    {
+      "sigma": 2.0,
+      "epsilon_estime": 75.871,
+      "f1_final": "0.0374",
+      "accuracy_final": "0.8712"
+    }
+  ],
+  "alpha_sweep": [
+    {
+      "alpha": 0.1,
+      "f1_final": "0.4295",
+      "accuracy_final": "0.8938"
+    },
+    {
+      "alpha": 0.3,
+      "f1_final": "0.2769",
+      "accuracy_final": "0.8825"
+    },
+    {
+      "alpha": 0.5,
+      "f1_final": "0.2314",
+      "accuracy_final": "0.8838"
+    },
+    {
+      "alpha": 1.0,
+      "f1_final": "0.2946",
+      "accuracy_final": "0.8862"
+    },
+    {
+      "alpha": 5.0,
+      "f1_final": "0.1864",
+      "accuracy_final": "0.88"
+    }
+  ]
+}

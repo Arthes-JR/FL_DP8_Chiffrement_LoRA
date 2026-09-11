@@ -1,0 +1,58 @@
+# ==========================================================================
+# config_trimmed.yaml
+# Configuration pour agregation ROBUSTE par MOYENNE TRONQUEE (trimmed mean).
+# ATTENTION : incompatible avec secure_aggregation (necessite de voir chaque
+# contribution individuelle pour calculer la moyenne tronquee).
+# ==========================================================================
+
+experiment_name: "theme18_federated_privacy_llm_trimmed"
+
+network:
+  host: "127.0.0.1"
+  port: 8768
+  connect_timeout_s: 10
+  round_timeout_s: 30
+
+federation:
+  n_clients: 5
+  n_rounds: 100
+  local_epochs: 2
+  local_batch_size: 32
+  learning_rate: 0.3
+  non_iid_alpha: 0.5
+  aggregation_strategy: "plain_trimmed"
+  trimmed_beta: 0.2
+
+privacy:
+  enabled: true
+  clip_norm: 1.0
+  noise_multiplier: 0.1
+  delta: 1.0e-5
+  sampling_rate: 0.1
+
+security:
+  secure_aggregation: false
+  shamir_threshold: 3
+  mask_scale: 5.0
+  simulate_dropout:
+    client_id: 3
+    round: 5
+
+dataset:
+  task: "finance"
+  n_samples: 4000
+  n_features: 20
+  test_fraction: 0.2
+  seed: 123
+
+model:
+  d_hidden: 32
+  rank: 8
+  seed_base: 42
+  pos_weight: 5.0
+
+paths:
+  keys_dir: "keys"
+  data_dir: "data"
+  results_dir: "results_trimmed"
+  logs_dir: "logs_trimmed"

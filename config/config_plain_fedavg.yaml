@@ -1,0 +1,41 @@
+dataset:
+  n_features: 20
+  n_samples: 4000
+  seed: 123
+  task: finance
+  test_fraction: 0.2
+experiment_name: theme18_federated_privacy_llm
+federation:
+  aggregation_strategy: plain_fedavg
+  learning_rate: 0.3
+  local_batch_size: 32
+  local_epochs: 2
+  n_clients: 5
+  n_rounds: 20
+  non_iid_alpha: 0.5
+  trimmed_beta: 0.2
+model:
+  d_hidden: 32
+  rank: 8
+  seed_base: 42
+network:
+  connect_timeout_s: 10
+  host: 127.0.0.1
+  port: 8765
+  round_timeout_s: 30
+paths:
+  data_dir: data
+  keys_dir: keys
+  logs_dir: logs
+  results_dir: results
+privacy:
+  clip_norm: 1.0
+  delta: 1.0e-05
+  enabled: false
+  noise_multiplier: 0.6
+  sampling_rate: 1.0
+security:
+  mask_scale: 5.0
+  secure_aggregation: false
+  shamir_threshold: 3
+  simulate_dropout: null

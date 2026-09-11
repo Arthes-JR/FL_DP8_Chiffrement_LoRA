@@ -1,0 +1,7 @@
+run,config,decrochage,rounds,accuracy,precision,rappel,F1,perte,epsilon,duree_s
+A : FedAvg secure (sans decrochage),base_config.yaml,non,230,0.8912,0.6333,0.3689,0.4663,0.37,27.29,56.5
+B : FedAvg secure (avec decrochage),base_config.yaml,oui,230,0.8912,0.6538,0.3301,0.4387,0.3699,27.29,39.5
+C : Mediane       (sans decrochage),config_median.yaml,non,230,0.8738,0.75,0.0291,0.0561,0.3388,121.289,18.5
+D : Mediane       (avec decrochage),config_median.yaml,oui,230,0.8838,0.6786,0.1845,0.2901,0.3505,121.289,22.2
+E : Trimmed       (sans decrochage),config_trimmed.yaml,non,100,0.8738,1.0,0.0194,0.0381,0.3488,47.985,11.4
+F : Trimmed       (avec decrochage),config_trimmed.yaml,oui,100,0.89,0.6744,0.2816,0.3973,0.3297,47.985,11.0

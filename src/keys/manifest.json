@@ -1,0 +1,12 @@
+{
+  "n_clients": 5,
+  "threshold": 3,
+  "client_ids": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "generated_at": "2026-09-10T23:06:43.983373Z"
+}

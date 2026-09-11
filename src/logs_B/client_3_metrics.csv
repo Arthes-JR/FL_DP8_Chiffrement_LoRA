@@ -1,0 +1,6 @@
+round,grad_norm,duration_s,status
+1,0.3064,0.0202,active
+2,0.3118,0.0287,active
+3,0.3077,0.014,active
+4,0.2924,0.0106,active
+5,0.3077,0.0107,active

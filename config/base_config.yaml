@@ -1,0 +1,90 @@
+# ==========================================================================
+# base_config.yaml
+# Configuration centrale du prototype d'analyse federee respectueuse de la
+# vie privee (TFC - Theme 18). Toutes les valeurs numeriques par defaut ci-
+# dessous sont volontairement modestes pour permettre une execution rapide
+# sur un simple ordinateur portable (voir chapitre 8.3.1 du memoire,
+# "contraintes materielles").
+# ==========================================================================
+
+experiment_name: "theme18_federated_privacy_llm"
+
+# -------------------------------------------------------------------------
+# Reseau (chapitre 9, "flots de donnees et de mises a jour")
+# -------------------------------------------------------------------------
+network:
+  host: "127.0.0.1"
+  port: 8765
+  connect_timeout_s: 10
+  round_timeout_s: 30        # delai max d'attente d'un client par round (detection de decrochage)
+
+# -------------------------------------------------------------------------
+# Federation (chapitre 4)
+# -------------------------------------------------------------------------
+federation:
+  n_clients: 5
+  n_rounds: 230
+  local_epochs: 2          # E dans l'Algorithme 4.1 (FedAvg)
+  local_batch_size: 42
+  learning_rate: 0.1         # eta local (Eq. 5.2 / Algorithme 5.1)
+  non_iid_alpha: 0.5         # alpha de la partition Dirichlet (chapitre 11.1.1) ; petit = tres non-iid
+
+  # Strategie d'agregation cote serveur (chapitre 9.3.2) :
+  #   "secure_fedavg"  -> DP-SGD + masquage (agregation securisee) + FedAvg pondere (config #4 du memoire)
+  #   "plain_fedavg"   -> FedAvg pondere sans masquage, DP optionnelle       (configs #2/#3 du memoire)
+  #   "plain_median"   -> agregation robuste (mediane), sans masquage       (scenario de stress, chapitre 8.4.3)
+  #   "plain_trimmed"  -> agregation robuste (moyenne tronquee), sans masquage
+  aggregation_strategy: "secure_fedavg"
+  trimmed_beta: 0.2
+
+# -------------------------------------------------------------------------
+# Confidentialite differentielle (chapitre 5.1, Algorithme 5.1)
+# -------------------------------------------------------------------------
+privacy:
+  enabled: true
+  clip_norm: 1.0             # 
+  noise_multiplier: 0.8    # sigma
+  delta: 1.0e-5
+  sampling_rate: 0.3       # q (ici = 1.0 car un seul lot local par epoque dans le prototype)
+
+# -------------------------------------------------------------------------
+# Securite / agregation securisee (chapitre 5.2, Algorithme 5.2)
+# -------------------------------------------------------------------------
+security:
+  secure_aggregation: true
+  shamir_threshold: 3        # t : nombre de parts necessaires a la reconstruction
+  mask_scale: 5.0            # amplitude des masques additifs (doit dominer le signal utile)
+
+  # Simulation d'un decrochage client, pour DEMONTRER la reconstruction
+  # (Algorithme 5.2). Mettre `null` pour desactiver.
+  simulate_dropout:
+    client_id: 3
+    round: 5
+
+# -------------------------------------------------------------------------
+# Jeu de donnees synthetique (chapitre 11.1.1)
+# -------------------------------------------------------------------------
+dataset:
+  task: "finance"             # "health" ou "finance"
+  n_samples: 4000
+  n_features: 20
+  test_fraction: 0.2
+  seed: 123
+
+# -------------------------------------------------------------------------
+# Modele (chapitre 2.2.4 / 6.1 -- LoRA)
+# -------------------------------------------------------------------------
+model:
+  d_hidden: 64
+  rank: 16
+  pos_weight: 5.0
+  seed_base: 42               # graine PARTAGEE du modele de base gele W0
+
+# -------------------------------------------------------------------------
+# Chemins de sortie
+# -------------------------------------------------------------------------
+paths:
+  keys_dir: "keys"
+  data_dir: "data"
+  results_dir: "results"
+  logs_dir: "logs"
